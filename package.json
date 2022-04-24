@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/PrAkHaR-BitsPilani/Decentralized-Voting-Platform/issues"
   },
-  "homepage": "https://github.com/PrAkHaR-BitsPilani/Decentralized-Voting-Platform#readme"
+  "homepage": "https://github.com/PrAkHaR-BitsPilani/Decentralized-Voting-Platform#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "crypto-js": "^4.1.1",
+    "elliptic": "^6.5.4",
+    "express": "^4.17.3"
+  }
 }
