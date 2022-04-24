@@ -2,11 +2,22 @@ const {block} = require('./block.js')
 const {transaction} = require('./transaction')
 
 class blockchain{
-    constructor(difficulty = 4 , miningReward = 10){
+    constructor(difficulty = 4 , miningReward = 10 , default_balance = 1){
         this.chain = [this.createGenesisBlock()]
         this.pendingTransactions = []
         this.difficulty = difficulty
         this.miningReward = miningReward
+        this.default_balance = default_balance
+    }
+
+    addUser(_user){
+        const tx = new transaction(null , _user.getPubKey() , this.default_balance)
+        this.pendingTransactions.push(tx)
+    }
+
+    addUsers(_users){
+        for (const user of _users)
+            this.addUser(user)
     }
 
     createGenesisBlock(){
@@ -36,18 +47,18 @@ class blockchain{
         if(transaction.amt <= 0)
             throw new Error("Transaction amount must be greater than 0")    
         
-        // const bal = this.getBalOfAddr(transaction.fromAddr)
-        // if(bal < transaction.amt)
-        //     throw new Error("Not enough balance")
+        const bal = this.getBalOfAddr(transaction.fromAddr)
+        if(bal < transaction.amt)
+            throw new Error("Not enough balance")
         
-        // const pendingTxForWallet = this.pendingTransactions.filter(tx => tx.fromAddr == transaction.fromAddr)    
+        const pendingTxForWallet = this.pendingTransactions.filter(tx => tx.fromAddr == transaction.fromAddr)    
 
-        // if(pendingTxForWallet.length > 0){
-        //     const totalPendingAmt = pendingTxForWallet.map(tx => tx.amt).reduce((prev , curr) => prev + curr)
-        //     const totalAmt = totalPendingAmt + transaction.amt
-        //     if(totalAmt > bal)
-        //         throw new Error("Pending transactions for this wallet is higher than its balance")
-        // }
+        if(pendingTxForWallet.length > 0){
+            const totalPendingAmt = pendingTxForWallet.map(tx => tx.amt).reduce((prev , curr) => prev + curr)
+            const totalAmt = totalPendingAmt + transaction.amt
+            if(totalAmt > bal)
+                throw new Error("Pending transactions for this wallet is higher than its balance")
+        }
         this.pendingTransactions.push(transaction)
     }
 
