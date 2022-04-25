@@ -26,22 +26,21 @@
     <center>
         <div style="padding-top: 100px; color: black; ">
             <h1 style="font-family: 'Square Peg', cursive; font-size:80px">Contact Verification</h1>
-        </div>
+        </div>  
     </center>
         
     <div class="card" style=" border-radius: 1em; width: 27rem; margin: auto; margin-top: 50px; padding-top: 30px; padding-bottom: 40px; align-items: center;">
         <h5 class="card-title" style="padding-bottom: 10px; font-family: 'Karla', sans-serif;">Authentication</h5>
-        <img src="images/phone.png" style="width: 15rem; padding-bottom: 50px;" class="card-img-top" alt="Bitsian LOGO">
+        <img src="/images/phone.png" style="width: 15rem; padding-bottom: 50px;" class="card-img-top" alt="Bitsian LOGO">
         <div class="card-body">
-            <form action="" method="">
+            <form action = <%= action_path %> method="post">
                 <div class="mb-3" style="width: 20em;">
                   <b><label for="" class="form-label">Enter the OTP </label></b>
-                  <input type="" class="form-control" id="otp">
+                  <input type="" class="form-control" name="otp">
                   <div id="" class="form-text">Do not share the one-time password you recieved on your contact.</div>
                 </div>
                 
                 <center><button type="submit" style= "width: 10rem;" class="btn btn-outline-dark">Login</button></center>
-                <a href="dashboard.html">Dashboard pe Jaana hai</a>
             </form>
         </div>
     </div>  

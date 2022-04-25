@@ -32,17 +32,18 @@
 
         <div class="card" style=" border-radius: 1em; width: 27rem; margin: auto; padding-top: 30px; padding-bottom: 40px; align-items: center;">
             <h5 class="card-title" style="padding-bottom: 10px; font-family: 'Karla', sans-serif;">Key Verification</h5>
-            <img src="images/logo.png" style="width: 10rem; padding-bottom: 50px;" class="card-img-top" alt="Bitsian LOGO">
+            <img src="/images/logo.png" style="width: 10rem; padding-bottom: 50px;" class="card-img-top" alt="Bitsian LOGO">
             <div class="card-body">
-                <form action="" method="">
+                <form action = <%= action_path %> method="post">
                     <div class="mb-3" style="width: 20em;">
                       <label for="" class="form-label">Private Key</label>
-                      <input type="" class="form-control" id="">
+                      <input type="" class="form-control" name = "pr_key">
                       <div id="" class="form-text">We'll never share your private key with anyone else.</div>
                     </div>
                     
-                    <center><button type="submit" style= "display:inline-block; width: 10rem; margin: 0px;" class="btn btn-outline-success">Verify & Vote</button>
-                        <a type="submit" style= "display:inline-block; width: 10rem; margin: 0px;" class="btn btn-outline-dark">Return</a></center>
+                    <center>
+                        <button type="submit" style= "display:inline-block; width: 10rem; margin: 0px;" class="btn btn-outline-success" name = 'butt' value = 'verify'>Verify & Vote</button>
+                        <button type="submit" style= "display:inline-block; width: 10rem; margin: 0px;" class="btn btn-outline-dark" name = 'butt' value = 'return'>Return</button></center>
                  
                 </form>
             </div>

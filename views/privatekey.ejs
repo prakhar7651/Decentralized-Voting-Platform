@@ -36,7 +36,7 @@
             
           
             <center>
-                <img src="images/key.png" style="width: 90%; " class="card-img-top" alt="...">
+                <img src="/images/key.png" style="width: 90%; " class="card-img-top" alt="...">
             </center>  
             <br>
           <p class="card-text">Save your key for future use and do not disclose it.</p>
@@ -46,10 +46,13 @@
           </center> 
             
           <br>
-          
           <center>
-            <button  type="text" class="btn btn-outline-primary" style="display:inline-block; width: 10rem;" id="myInput" onclick="myFunction()">Copy text</button>
-        </center>
+            <button  type="button" class="btn btn-outline-primary" style="display:inline-block;" id="myInput" onclick="myFunction()">Copy text</button>
+            <div style="display: inline-block; width: 5px;"></div>
+            <form style="display:inline-block;" method="get" action = <%= action_path %>>
+              <button type="submit" class="btn btn-outline-primary" style="display:inline-block;">Proceed</button>
+            </form>
+            </center>
 
         </div>
       </div>
