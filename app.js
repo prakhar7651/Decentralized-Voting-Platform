@@ -55,7 +55,7 @@ app.route('/')
 
 app.route('/verifyPhone/:phone_no')
 .get(async (req , res) => {
-    const OTP = 12321
+    const OTP = process.env.OTP
     const t = await fast2sms.sendMessage({
         authorization : process.env.SMS_API_KEY , 
         message : `YOUR OTP IS ${OTP}`,
@@ -67,7 +67,7 @@ app.route('/verifyPhone/:phone_no')
     })
 })
 .post(async (req , res) => {
-    if(req.body.otp == 12321){
+    if(req.body.otp == process.env.OTP){
         createUser(req.params.phone_no).then((data) => {
             assert(data['newUser'])
             voteCoin.addUser(data['user'])
@@ -116,7 +116,7 @@ app.route('/confirmKey/:phone_no/:pub_key')
                 })
             else{
                     voteCoin.addTransaction(tx).then(() => {
-                        voteCoin.minePendingTransactions('prakhar is great').then(() => {
+                        voteCoin.minePendingTransactions('minerAddr0').then(() => {
                             res.render('displayMessage' , {
                                 message : 'Thank you for voting'
                             })
@@ -136,6 +136,6 @@ app.route('/results')
     })
 })
 
-voteCoin.getTransOfUser('7651886038').then((data) => {
-    console.log(JSON.stringify(data , null , 2))
-})
+// voteCoin.getTransOfUser('7651886038').then((data) => {
+//     console.log(JSON.stringify(data , null , 2))
+// })
