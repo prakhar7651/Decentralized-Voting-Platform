@@ -78,97 +78,17 @@
         <h3 style="margin-left:640px; padding-bottom: 10px; font-family: 'Red Hat Display', sans-serif; font-size: 45px;">Voting Zone</h3>
         <br>
         <center>
-        <div class="card divEffect" style="width: 18rem; display: inline-block;">
-            <img class="card-img-top" src="/images/logo.png" alt="Card image cap">
+          <% for(var i = 0; i < candidates.length; i++){ %>
+          <div class="card divEffect" style="width: 18rem; display: inline-block;">
+            <img class="card-img-top" src = <%= candidates[i]['img_loc'] %> alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Lights and Sound Department</h5><br>
+              <h5 class="card-title"><%= candidates[i]['name'] %></h5><br>
               <form action = <%= action_path %> method="post">
-                <button style="width: 10rem;" class="btn btn-outline-success" name ='dept' value = 'LSD'> VOTE </button>
+                <button style="width: 10rem;" class="btn btn-outline-success" name ='phone_no' value = <%= candidates[i]['phone_no'] %> > VOTE </button>
               </form>
             </div>
           </div>
-          <div style="width: 30px; display: inline-block;"></div>
-         
-          <div class="card divEffect" style="width: 18rem; display: inline-block; ">
-            <img class="card-img-top" src="/images/logo.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Department of Professional Events</h5><br>
-              <form action = <%= action_path %> method="post">
-                <button style="width: 10rem;" class="btn btn-outline-success" name ='dept' value = 'DOPE'> VOTE </button>
-              </form>
-            </div>
-          </div>
-          <div style="width: 30px; display: inline-block;"></div>
-          
-          <div class="card divEffect" style="width: 18rem; display: inline-block; ">
-            <img class="card-img-top" src="/images/logo.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Department of Security and Hospitality</h5><br>
-              <form action = <%= action_path %> method="post">
-                <button style="width: 10rem;" class="btn btn-outline-success" name ='dept' value = 'DOSH'> VOTE </button>
-              </form>
-            </div>
-          </div>
-
-          <div style="width: 30px; display: inline-block;"></div>
-          
-          <div class="card divEffect" style="width: 18rem; display: inline-block; ">
-            <img class="card-img-top" src="/images/logo.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Department of Photography</h5><br>
-              <form action = <%= action_path %> method="post">
-                <button style="width: 10rem;" class="btn btn-outline-success" name ='dept' value = 'DOPY'> VOTE </button>
-              </form>
-            </div>
-          </div>
-          <br><br>
-          
-          
-          <div class="card divEffect" style="width: 18rem; display: inline-block; ">
-            <img class="card-img-top" src="/images/logo.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Department of Visual Effects</h5><br>
-              <form action = <%= action_path %> method="post">
-                <button style="width: 10rem;" class="btn btn-outline-success" name ='dept' value = 'DOVE'> VOTE </button>
-              </form>
-            </div>
-          </div>
-
-          <div style="width: 30px; display: inline-block;"></div>
-          
-          <div class="card divEffect" style="width: 18rem; display: inline-block; ">
-            <img class="card-img-top" src="/images/logo.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Department of Sponsorship and Management</h5><br>
-              <form action = <%= action_path %> method="post">
-                <button style="width: 10rem;" class="btn btn-outline-success" name ='dept' value = 'DOSM'> VOTE </button>
-              </form>
-            </div>
-          </div>
-
-          <div style="width: 30px; display: inline-block;"></div>
-          
-          <div class="card divEffect" style="width: 18rem; display: inline-block; ">
-            <img class="card-img-top" src="/images/logo.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Department of Recreational Activities</h5><br>
-              <form action = <%= action_path %> method="post">
-                <button style="width: 10rem;" class="btn btn-outline-success" name ='dept' value = 'DORA'> VOTE </button>
-              </form>
-            </div>
-          </div>
-
-          <div style="width: 30px; display: inline-block;"></div>
-          
-          <div class="card divEffect" style="width: 18rem; display: inline-block; ">
-            <img class="card-img-top" src="/images/logo.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Department of Arts and Decoration  </h5><br>
-              <form action = <%= action_path %> method="post">
-                <button style="width: 10rem;" class="btn btn-outline-success" name ='dept' value = 'DOAD'> VOTE </button>
-              </form>
-            </div>
-          </div>
+          <% } %>
         </center>
         <br><br>
         </div>

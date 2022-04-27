@@ -26,19 +26,49 @@ class User{
         return this.pub_key
     }
 
-    signTransaction(tx){
+    signTransaction(tx , _prKey){
         if(this.getPubKey() !== tx.fromAddr)
             throw new Error('You cannot sign transactions for other wallets')
         const hashTx = tx.calculateHash()
-        const sig = key.sign(hashTx , 'base64')
+        const prKey = ec.keyFromPrivate(_prKey , 'hex')
+        const sig = prKey.sign(hashTx , 'base64')
+        // const sig = key.sign(hashTx , 'base64')
         tx.signature = sig.toDER('hex')
     }
 
-    sendMoney(user , amt){
-        const tx = new transaction(this.getPubKey() , user.getPubKey() , amt)
-        this.signTransaction(tx)
+    sendMoney(pb_key , amt){
+        const tx = new transaction(this.getPubKey() , pb_key , amt)
+        // this.signTransaction(tx)
         return tx
     }
+}
+
+async function checkUser(_phone){
+    
+    return new Promise( (resolve , reject) => {
+        mongoose.connect(URL + "/" + dbName)
+        userModel.find({phone_no : _phone} , {} , (err , users) => {
+            if(err)
+                reject
+            else{
+                resolve(users.length != 0)
+            }
+        })
+    })
+
+}
+
+async function getUser(_phone){
+    return new Promise ((resolve , resject) => {
+        mongoose.connect(URL + '/' + dbName)
+        userModel.find({phone_no : _phone} , {} , (err , users) => {
+            if(err)
+                reject
+            else{
+                resolve(new User(users[0]['phone_no'] , users[0]['pub_key']))
+            }
+        })
+    })
 }
 
 async function createUser(_phone){
@@ -88,3 +118,5 @@ async function createUser(_phone){
 
 module.exports.User = User
 module.exports.createUser = createUser
+module.exports.checkUser = checkUser
+module.exports.getUser = getUser

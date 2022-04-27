@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Success</title>
+        <title>Results</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- CSS only -->
@@ -20,13 +20,35 @@
   
         
     </head>
-    <body  style=" background-image: linear-gradient(to right, #C9D6FF , #E2E2E2); height: 970px;"> 
+    <body  style="height: 970px;"> 
     
     <center>
-    <div style="padding-top: 300px; color: black; ">
-        <h1 style="font-family: 'Square Peg', cursive; font-size:100px">Thankyou for Voting ! </h1>
+    <div style="padding-top: 100px; color: black; ">
+        <h1 style="font-family: 'Square Peg', cursive; font-size:80px">Poll Results</h1>
     </div>
+    <br>
+    <br>
     </center>
+    <div style="margin: auto; width: 75rem;">
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Department Name</th>
+                <th scope="col">Votes Recieved</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(var i = 0; i < candidates.length; i++){ %>
+                <tr>
+                  <td><%= candidates[i]['name'] %></td>
+                  <td><%= candidates[i]['votes'] %></td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+    </div>
+    
+
     
        
         
