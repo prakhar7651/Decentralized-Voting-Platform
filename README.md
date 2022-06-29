@@ -9,7 +9,7 @@ Tech Stack :  NodeJS , MongoDB , Express and Bootstrap
 
 # Project Team
 
-- [Vedansh Srivastav](https://github.com/vedansh-srivastava)
+- [Vedansh Srivastava](https://github.com/vedansh-srivastava)
 - [Prakhar Agarwal](https://github.com/PrAkHaR-BitsPilani)
 
 ```cpp
